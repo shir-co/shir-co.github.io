@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shir Cohen</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shir Cohen">
+<meta property="og:description" content="Distributed systems researcher: Byzantine agreement, consensus, BFT systems and metastability.">
+<meta property="og:url" content="https://shir-co.github.io/">
+<meta property="og:image" content="https://shir-co.github.io/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shir Cohen — Reliable Systems, Built from Unreliable Parts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shir Cohen">
+<meta name="twitter:description" content="Distributed systems researcher: Byzantine agreement, consensus, BFT systems and metastability.">
+<meta name="twitter:image" content="https://shir-co.github.io/images/og.png">
+<meta name="description" content="Shir Cohen — distributed systems researcher: Byzantine agreement, consensus, BFT systems and metastability.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#9B4A2E}
+html{scroll-behavior:smooth}
+img{max-width:100%}
+a{color:#B83A1A}a:hover{color:#7E2A17}
+</style>
+
+<style>
+html, body { overflow-x: hidden; }
+.sc-frame { overflow-x: clip; }
+@media (max-width: 640px) {
+  .sc-frame { padding: 0 8px 8px !important; }
+  .sc-nav { justify-content: center !important; flex-wrap: wrap !important; gap: 4px 18px !important; padding: 14px 6px 12px !important; font-size: 11px !important; }
+  .sc-nav > div { display: contents !important; }
+  .sc-nav a { white-space: nowrap; padding: 4px 0 !important; }
+  .sc-nav-minor { display: none !important; }
+  .sc-hero-photo { min-height: 0 !important; padding: 40px 28px 28px !important; }
+  .sc-hero-text { min-height: 0 !important; padding: 12px 14px 32px !important; }
+  .sc-hero-card { padding: 28px 22px 30px !important; }
+  .sc-wordmark { font-size: 50px !important; margin-bottom: 18px !important; }
+  .sc-h1 { font-size: 38px !important; }
+  .sc-badge { width: 92px !important; height: 92px !important; top: 6px !important; right: 6px !important; }
+  .sc-intro { padding: 56px 16px 48px !important; }
+  .sc-intro p { font-size: 24px !important; line-height: 1.35 !important; }
+  .sc-swirl { display: none !important; }
+  .sc-section { padding-left: 18px !important; padding-right: 18px !important; padding-top: 56px !important; padding-bottom: 64px !important; }
+  .sc-section h2 { font-size: 40px !important; }
+  .sc-card { transform: none !important; padding: 24px 22px !important; }
+  .sc-card h3 { font-size: 26px !important; }
+  .sc-stamp { display: none !important; }
+  .sc-gallery { grid-template-columns: 1fr 1fr !important; gap: 28px 16px !important; }
+  .sc-gallery > div { margin-top: 0 !important; gap: 10px !important; }
+  .sc-gallery > div > div:first-child { border-width: 6px !important; padding: 8px !important; }
+  .sc-gallery > div > div:last-child > div { font-size: 23px !important; }
+  .sc-gallery p { font-size: 13px !important; }
+  .sc-polaroids { gap: 18px 14px !important; }
+  .sc-polaroids figure { width: calc(50% - 7px) !important; margin-top: 0 !important; box-sizing: border-box; padding: 8px 8px 10px !important; }
+  .sc-polaroids figcaption { font-size: 17px !important; }
+  .sc-footer { padding: 64px 18px 48px !important; }
+  .sc-footer h2 { font-size: 64px !important; }
+  .sc-pagehead { padding: 40px 14px !important; }
+  .sc-pagehead h1 { font-size: 46px !important; }
+  .sc-pagehead > div { padding: 26px 20px !important; }
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="sc-frame" style="background: #9B4A2E; padding: 0 18px 18px; font-family: 'Bricolage Grotesque', Georgia, sans-serif; color: #2B1C15; box-sizing: border-box;">
+
+  <!-- NAV on the rust frame -->
+  <nav class="sc-nav" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 14px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">
+    <div style="display: flex; flex-wrap: wrap; gap: 28px;">
+      <a href="#about" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(About)</a>
+      <a class="sc-nav-minor" href="#things" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Things I think about)</a>
+      <a href="#papers" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Papers)</a>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 28px;">
+      <a href="talks.html" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Talks &amp; service)</a>
+      <a class="sc-nav-minor" href="#scrapbook" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Scrapbook)</a>
+      <a href="#hi" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Say hi)</a>
+    </div>
+  </nav>
+
+  <!-- PAGE -->
+  <main style="background: #F4ECDD; overflow: hidden;">
+
+    <!-- HERO -->
+    <section id="about" style="position: relative; display: flex; flex-wrap: wrap;">
+      <div class="sc-hero-photo" style="flex: 2 1 300px; min-height: 560px; background-color: #F7F0E3; background-image: repeating-linear-gradient(90deg, #C4D4EC 0 14px, #F7F0E3 14px 36px); display: flex; align-items: center; justify-content: center; padding: 48px 32px; box-sizing: border-box;">
+        <div style="border: 3px solid #5C4A40; background: #FBF6EC; padding: 14px; width: 100%; max-width: 370px; box-sizing: border-box; box-shadow: 0 12px 24px rgba(43,28,21,0.16); transform: rotate(-2deg); position: relative;">
+          <div style="position: absolute; top: -14px; left: 50%; width: 110px; height: 28px; margin-left: -55px; background: rgba(242,222,134,0.9); transform: rotate(3deg);"></div>
+          <img src="images/hero.jpg" alt="Shir smiling on a forest trail with her baby on her back" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover;">
+        </div>
+      </div>
+      <div class="sc-hero-text" style="flex: 3 1 420px; min-width: 0; min-height: 560px; background-color: #F7F0E3; background-image: repeating-linear-gradient(90deg, #C4D4EC 0 14px, #F7F0E3 14px 36px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 56px 40px; box-sizing: border-box; position: relative;">
+        <div class="sc-hero-card" style="background: #F7F0E3; padding: 40px 44px 44px; max-width: 520px; box-shadow: 0 0 0 1px #E3D6C2;">
+          <div class="sc-wordmark" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 64px; line-height: 0.85; letter-spacing: -0.03em; color: #D24A24; margin-bottom: 28px;">shir<br>cohen</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 28px; color: #5C4A40; margin-bottom: 6px;">distributed systems, from proofs to production</div>
+          <h1 class="sc-h1" style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 54px; line-height: 1.0; letter-spacing: -0.01em; margin: 0 0 20px;">Reliable Systems, Built from Unreliable Parts</h1>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0 0 28px; color: #4A3830;">I did my PhD at the Technion on Byzantine agreement, a postdoc at Cornell on BFT systems, fair ordering and metastability, and then worked on performance and fault tolerance for a sharded blockchain. I like problems where theory and practice keep each other honest. These days I'm a research scientist at Chainalysis.</p>
+          <a href="#things" style="display: inline-block; background: #B83A1A; color: #FBF4E6; text-decoration: none; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 26px; border-radius: 999px;">See what I'm into</a>
+        </div>
+        <!-- sticker badge -->
+        <svg class="sc-badge" width="132" height="132" viewBox="0 0 132 132" style="position: absolute; top: 36px; right: 36px; transform: rotate(-12deg);" aria-hidden="true">
+          <defs><path id="badgeTop" d="M18,66 a48,48 0 0,1 96,0"></path><path id="badgeBottom" d="M11,66 a55,55 0 0,0 110,0"></path></defs>
+          <circle cx="66" cy="66" r="64" fill="#F2DE86"></circle>
+          <circle cx="66" cy="66" r="58" fill="none" stroke="#D24A24" stroke-width="1.5" stroke-dasharray="3 4"></circle>
+          <text font-family="Bricolage Grotesque, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#B83A1A" text-anchor="middle"><textPath href="#badgeTop" startOffset="50%">BYZANTINE TOLERANT</textPath></text>
+          <text font-family="Bricolage Grotesque, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#B83A1A" text-anchor="middle"><textPath href="#badgeBottom" startOffset="50%">SINCE 2019</textPath></text>
+          <text x="66" y="76" text-anchor="middle" font-family="Caveat, cursive" font-size="34" font-weight="700" fill="#B83A1A">sc</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <style>
+      @keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .sc-marquee { display: flex; width: max-content; animation: sc-marquee 45s linear infinite; }
+      .sc-ticker:hover .sc-marquee { animation-play-state: paused; }
+      @media (prefers-reduced-motion: reduce) { .sc-marquee { animation: none; } }
+    </style>
+    <div class="sc-ticker" style="border-top: 1.5px solid #B83A1A; border-bottom: 1.5px solid #B83A1A; padding: 12px 0; overflow: hidden; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8F3218; white-space: nowrap;">
+      <div class="sc-marquee">
+        <div style="display: flex;"><span style="padding: 0 22px;">Byzantine agreement</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Consensus</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">BFT systems</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Blockchains</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Fair ordering</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Metastability</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Performance engineering</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Distributed algorithms</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">AI-augmented engineering</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Teaching &amp; mentoring</span><span aria-hidden="true">✱</span></div>
+        <div style="display: flex;" aria-hidden="true"><span style="padding: 0 22px;">Byzantine agreement</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Consensus</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">BFT systems</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Blockchains</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Fair ordering</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Metastability</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Performance engineering</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Distributed algorithms</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">AI-augmented engineering</span><span aria-hidden="true">✱</span><span style="padding: 0 22px;">Teaching &amp; mentoring</span><span aria-hidden="true">✱</span></div>
+      </div>
+    </div>
+
+    <!-- INTRO LINE -->
+    <section class="sc-intro" style="padding: 96px 32px 88px; display: flex; flex-direction: column; align-items: center; position: relative;">
+      <p style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1.15; text-align: center; max-width: 980px; margin: 0;">I'm <span style="white-space: nowrap;">a distributed-systems researcher
+        <svg width="46" height="30" viewBox="0 0 46 30" style="vertical-align: middle;" aria-hidden="true"><circle cx="8" cy="15" r="6" fill="#C4D4EC" stroke="#2B1C15" stroke-width="1.5"></circle><circle cx="38" cy="7" r="5" fill="#F2DE86" stroke="#2B1C15" stroke-width="1.5"></circle><circle cx="36" cy="24" r="5" fill="#E8826A" stroke="#2B1C15" stroke-width="1.5"></circle><path d="M14 13 L33 8 M14 17 L31 23" stroke="#2B1C15" stroke-width="1.5"></path></svg></span>,
+        <span style="white-space: nowrap;">a traveler
+        <svg width="44" height="32" viewBox="0 0 44 32" style="vertical-align: middle;" aria-hidden="true"><rect x="6" y="9" width="32" height="20" rx="3" fill="#E8826A" stroke="#2B1C15" stroke-width="1.5"></rect><path d="M16 9 L16 4 L28 4 L28 9 M14 9 L14 29 M30 9 L30 29" fill="none" stroke="#2B1C15" stroke-width="1.5"></path></svg></span>,
+        <span style="white-space: nowrap;">a reader
+        <svg width="40" height="30" viewBox="0 0 40 30" style="vertical-align: middle;" aria-hidden="true"><path d="M4 6 L20 10 L36 6 L36 25 L20 28 L4 25 Z M20 10 L20 28" fill="#F2DE86" stroke="#2B1C15" stroke-width="1.5" stroke-linejoin="round"></path></svg></span>
+        &amp; <span style="white-space: nowrap;">a jiu jitsu enthusiast
+        <svg width="46" height="32" viewBox="0 0 46 32" style="vertical-align: middle;" aria-hidden="true"><rect x="2" y="9" width="42" height="8" rx="2" fill="#C4D4EC" stroke="#2B1C15" stroke-width="1.5"></rect><rect x="18" y="7" width="10" height="12" rx="2" fill="#2B4BA8" stroke="#2B1C15" stroke-width="1.5"></rect><path d="M20 19 L14 30 M26 19 L32 30" stroke="#2B1C15" stroke-width="3" stroke-linecap="round"></path></svg></span>
+      </p>
+      <svg class="sc-swirl" width="120" height="150" viewBox="0 0 120 150" style="position: absolute; left: 4%; bottom: 10px;" aria-hidden="true"><path d="M80 10 C10 20 20 70 60 70 C95 70 80 30 50 50 C20 70 30 120 100 130 M100 130 L86 120 M100 130 L88 140" fill="none" stroke="#2B1C15" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      <svg class="sc-swirl" width="110" height="150" viewBox="0 0 110 150" style="position: absolute; right: 5%; bottom: 0;" aria-hidden="true"><path d="M20 10 C90 20 100 60 60 70 C30 78 40 40 70 60 C100 80 80 120 22 132 M22 132 L36 122 M22 132 L34 142" fill="none" stroke="#2B1C15" stroke-width="1.6" stroke-linecap="round"></path></svg>
+    </section>
+
+    <!-- THINGS I THINK ABOUT: framed prints on a butter wall -->
+    <section id="things" class="sc-section" style="background: #F2DE86; border-radius: 40px 40px 0 0; padding: 80px 48px 96px;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 10px;">The gallery wall</div>
+        <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 52px; margin: 0;">Things I <i>think about</i></h2>
+      </div>
+      <div class="sc-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 40px; max-width: 1240px; margin: 0 auto;">
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="border: 10px solid #2B1C15; background: #FBF6EC; padding: 18px; box-shadow: 0 14px 24px rgba(43,28,21,0.18);">
+            <div style="background: #EFE4CF; aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+              <svg width="76%" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 16 L20 42 L32 80 L68 80 L80 42 Z M50 16 L32 80 M50 16 L68 80 M20 42 L80 42 M20 42 L68 80 M80 42 L32 80" fill="none" stroke="#2B1C15" stroke-width="1.6"></path><circle cx="50" cy="16" r="8" fill="#2B4BA8"></circle><circle cx="20" cy="42" r="8" fill="#2B4BA8"></circle><circle cx="80" cy="42" r="8" fill="#2B4BA8"></circle><circle cx="32" cy="80" r="8" fill="#2B4BA8"></circle><circle cx="68" cy="80" r="8" fill="#D24A24"></circle><path d="M64.5 76.5 L71.5 83.5 M71.5 76.5 L64.5 83.5" stroke="#FBF6EC" stroke-width="2" stroke-linecap="round"></path></svg>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Caveat', cursive; font-size: 30px; font-weight: 700; color: #8F3218;">agreement</div>
+            <p style="font-size: 14px; line-height: 1.55; margin: 4px 0 0; color: #4A3830;">Byzantine agreement: getting machines that don't trust each other to agree, with far less talking. My PhD gave the first sub-quadratic asynchronous algorithm.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 36px;">
+          <div style="border: 10px solid #2B1C15; background: #FBF6EC; padding: 18px; box-shadow: 0 14px 24px rgba(43,28,21,0.18);">
+            <div style="background: #FBF6EC; aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+              <svg width="100%" height="100%" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0;" aria-hidden="true">
+                <defs>
+                  <filter id="wobA"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.5"></feDisplacementMap></filter>
+                  <pattern id="chkA" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#2B4BA8"></rect><rect x="6" y="6" width="6" height="6" fill="#2B4BA8"></rect></pattern>
+                </defs>
+                <rect x="-5" y="-5" width="110" height="135" fill="url(#chkA)" filter="url(#wobA)" opacity="0.22"></rect>
+                <path d="M8 60 C22 30 34 30 44 58 C52 80 60 92 72 92 C84 92 90 78 94 70" fill="none" stroke="#2B1C15" stroke-width="3.5" stroke-linecap="round"></path>
+                <circle cx="44" cy="51" r="7" fill="#D24A24" stroke="#2B1C15" stroke-width="2"></circle>
+                <path d="M54 46 Q62 44 66 52" fill="none" stroke="#2B1C15" stroke-width="1.8" stroke-dasharray="2 3"></path>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Caveat', cursive; font-size: 30px; font-weight: 700; color: #8F3218;">tipping points</div>
+            <p style="font-size: 14px; line-height: 1.55; margin: 4px 0 0; color: #4A3830;">Metastability: systems that look fine until one push sends them into a bad state they can't climb out of alone. Can we see it coming?</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="border: 10px solid #2B1C15; background: #FBF6EC; padding: 18px; box-shadow: 0 14px 24px rgba(43,28,21,0.18);">
+            <div style="background: #F4C9B6; aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+              <svg width="78%" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 18 L50 84 M34 84 L66 84" stroke="#2B1C15" stroke-width="3" stroke-linecap="round"></path><path d="M16 34 L84 30" stroke="#2B1C15" stroke-width="3" stroke-linecap="round"></path><path d="M16 34 L6 56 L26 56 Z M84 30 L74 52 L94 52 Z" fill="none" stroke="#2B1C15" stroke-width="1.6" stroke-linejoin="round"></path><path d="M6 56 Q16 64 26 56 Z" fill="#D24A24" stroke="#2B1C15" stroke-width="1.6"></path><path d="M74 52 Q84 60 94 52 Z" fill="#2B4BA8" stroke="#2B1C15" stroke-width="1.6"></path><circle cx="50" cy="16" r="4" fill="#2B1C15"></circle></svg>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Caveat', cursive; font-size: 30px; font-weight: 700; color: #8F3218;">fairness</div>
+            <p style="font-size: 14px; line-height: 1.55; margin: 4px 0 0; color: #4A3830;">Who goes first? What it should mean for a replicated system to order requests fairly, and how to guarantee it.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 36px;">
+          <div style="border: 10px solid #2B1C15; background: #FBF6EC; padding: 18px; box-shadow: 0 14px 24px rgba(43,28,21,0.18);">
+            <div style="background: #C4D4EC; aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+              <svg width="80%" viewBox="0 0 100 100" aria-hidden="true"><path d="M10 82 L90 82 M10 82 L10 18" stroke="#2B1C15" stroke-width="2.5" stroke-linecap="round"></path><path d="M14 70 L28 62 L40 66 L52 44 L60 50 L72 30 L84 34" fill="none" stroke="#D24A24" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="58" cy="52" r="15" fill="rgba(251,246,236,0.55)" stroke="#2B4BA8" stroke-width="4"></circle><path d="M69 63 L82 76" stroke="#2B4BA8" stroke-width="6" stroke-linecap="round"></path></svg>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Caveat', cursive; font-size: 30px; font-weight: 700; color: #8F3218;">proofs meet production</div>
+            <p style="font-size: 14px; line-height: 1.55; margin: 4px 0 0; color: #4A3830;">Taking ideas off the whiteboard: fast BFT systems, and performance work at scale. Profiling, benchmarking, and hunting the real bottleneck.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- hand-drawn checkerboard band -->
+    <svg width="100%" height="56" style="display: block;" aria-hidden="true">
+      <defs>
+        <filter id="wobB"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="4"></feDisplacementMap></filter>
+        <pattern id="chkB" width="28" height="28" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#2B4BA8"></rect><rect x="14" y="14" width="14" height="14" fill="#2B4BA8"></rect></pattern>
+      </defs>
+      <rect x="-10" y="0" width="110%" height="56" fill="#F4ECDD"></rect>
+      <rect x="-10" y="0" width="110%" height="56" fill="url(#chkB)" filter="url(#wobB)"></rect>
+    </svg>
+
+    <!-- PAPERS as postcards -->
+    <section id="papers" class="sc-section" style="padding: 96px 48px;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 10px;">Postcards from my research</div>
+        <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 52px; margin: 0;">Papers, <i>in plain words</i></h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 36px; max-width: 980px; margin: 0 auto;">
+        <article class="sc-card" style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 32px 36px; display: flex; flex-wrap: wrap; gap: 32px; box-shadow: 8px 8px 0 #2B4BA8; transform: rotate(-0.6deg); position: relative;">
+          
+          <div style="flex: 1 1 260px; min-width: 0;">
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 8px;">DISC 2020 · with Idit Keidar &amp; Alexander Spiegelman</div>
+            <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.1; margin: 0 0 12px;">Not a COINcidence: Sub-Quadratic Asynchronous Byzantine Agreement WHP</h3>
+            <p style="font-family: 'Caveat', cursive; font-size: 24px; line-height: 1.25; margin: 0 0 16px; color: #4A3830;">Agreement without clocks used to cost a quadratic number of messages. We showed it can be done with nearly linear communication.</p>
+            <a href="https://doi.org/10.4230/LIPIcs.DISC.2020.25" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block; padding: 10px 0;">Read it →</a>
+            <a href="https://www.youtube.com/watch?v=YZnm0HppO4c" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block; padding: 10px 0; margin-left: 20px;">Watch the talk →</a>
+          </div>
+          <div class="sc-stamp" style="flex: 0 0 200px; display: flex; flex-direction: column; align-items: flex-end; gap: 18px; border-left: 1.5px dashed #B9A68E; padding-left: 28px;">
+            <div style="position: relative; width: 96px; height: 116px; transform: rotate(-4deg); margin-right: 6px;">
+              <svg width="96" height="116" viewBox="0 0 96 116" style="display: block; filter: drop-shadow(0 2px 3px rgba(43,28,21,0.25));" aria-hidden="true">
+                <defs><mask id="perf0"><rect width="96" height="116" fill="white"></rect><g fill="black"><circle cx="4" cy="0" r="3.2"></circle><circle cx="4" cy="116" r="3.2"></circle><circle cx="12" cy="0" r="3.2"></circle><circle cx="12" cy="116" r="3.2"></circle><circle cx="20" cy="0" r="3.2"></circle><circle cx="20" cy="116" r="3.2"></circle><circle cx="28" cy="0" r="3.2"></circle><circle cx="28" cy="116" r="3.2"></circle><circle cx="36" cy="0" r="3.2"></circle><circle cx="36" cy="116" r="3.2"></circle><circle cx="44" cy="0" r="3.2"></circle><circle cx="44" cy="116" r="3.2"></circle><circle cx="52" cy="0" r="3.2"></circle><circle cx="52" cy="116" r="3.2"></circle><circle cx="60" cy="0" r="3.2"></circle><circle cx="60" cy="116" r="3.2"></circle><circle cx="68" cy="0" r="3.2"></circle><circle cx="68" cy="116" r="3.2"></circle><circle cx="76" cy="0" r="3.2"></circle><circle cx="76" cy="116" r="3.2"></circle><circle cx="84" cy="0" r="3.2"></circle><circle cx="84" cy="116" r="3.2"></circle><circle cx="92" cy="0" r="3.2"></circle><circle cx="92" cy="116" r="3.2"></circle><circle cx="0" cy="4" r="3.2"></circle><circle cx="96" cy="4" r="3.2"></circle><circle cx="0" cy="12" r="3.2"></circle><circle cx="96" cy="12" r="3.2"></circle><circle cx="0" cy="20" r="3.2"></circle><circle cx="96" cy="20" r="3.2"></circle><circle cx="0" cy="28" r="3.2"></circle><circle cx="96" cy="28" r="3.2"></circle><circle cx="0" cy="36" r="3.2"></circle><circle cx="96" cy="36" r="3.2"></circle><circle cx="0" cy="44" r="3.2"></circle><circle cx="96" cy="44" r="3.2"></circle><circle cx="0" cy="52" r="3.2"></circle><circle cx="96" cy="52" r="3.2"></circle><circle cx="0" cy="60" r="3.2"></circle><circle cx="96" cy="60" r="3.2"></circle><circle cx="0" cy="68" r="3.2"></circle><circle cx="96" cy="68" r="3.2"></circle><circle cx="0" cy="76" r="3.2"></circle><circle cx="96" cy="76" r="3.2"></circle><circle cx="0" cy="84" r="3.2"></circle><circle cx="96" cy="84" r="3.2"></circle><circle cx="0" cy="92" r="3.2"></circle><circle cx="96" cy="92" r="3.2"></circle><circle cx="0" cy="100" r="3.2"></circle><circle cx="96" cy="100" r="3.2"></circle><circle cx="0" cy="108" r="3.2"></circle><circle cx="96" cy="108" r="3.2"></circle><circle cx="0" cy="116" r="3.2"></circle><circle cx="96" cy="116" r="3.2"></circle></g></mask></defs>
+                <rect width="96" height="116" fill="#FFFDF7" mask="url(#perf0)"></rect>
+                <rect x="9" y="9" width="78" height="98" fill="#C4D4EC"></rect>
+                <ellipse cx="48" cy="62" rx="20" ry="8" fill="none" stroke="#2B1C15" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.5"></ellipse>
+  <g transform="rotate(-18 48 46)"><ellipse cx="48" cy="46" rx="15" ry="15" fill="#F2DE86" stroke="#2B1C15" stroke-width="2"></ellipse><ellipse cx="48" cy="46" rx="10" ry="10" fill="none" stroke="#2B4BA8" stroke-width="1.5"></ellipse><text x="48" y="51" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#2B4BA8">½</text></g>
+  <path d="M28 30 q-6 8 -2 16 M68 30 q6 8 2 16" fill="none" stroke="#2B1C15" stroke-width="1.5" stroke-linecap="round"></path>
+                <text x="16" y="100" font-family="Bricolage Grotesque, sans-serif" font-size="8" font-weight="600" letter-spacing="1" fill="#2B4BA8">SC</text>
+              </svg>
+              <svg width="78" height="56" viewBox="0 0 78 56" style="position: absolute; left: -52px; top: 58px; transform: rotate(-14deg); opacity: 0.8;" aria-hidden="true">
+                <defs><path id="pm0" d="M10,28 a18,18 0 1,1 36,0"></path></defs>
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#5C4A40" stroke-width="1.6"></circle>
+                <circle cx="28" cy="28" r="19" fill="none" stroke="#5C4A40" stroke-width="0.8"></circle>
+                <text font-family="Bricolage Grotesque, sans-serif" font-size="6.5" font-weight="600" letter-spacing="1" fill="#5C4A40" text-anchor="middle"><textPath href="#pm0" startOffset="50%">DISC</textPath></text>
+                <text x="28" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" fill="#5C4A40">2020</text>
+                <path d="M52 18 q6 -4 12 0 t12 0 M52 28 q6 -4 12 0 t12 0 M52 38 q6 -4 12 0 t12 0" fill="none" stroke="#5C4A40" stroke-width="1.4"></path>
+              </svg>
+            </div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+          </div>
+        </article>
+
+        <article class="sc-card" style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 32px 36px; display: flex; flex-wrap: wrap; gap: 32px; box-shadow: 8px 8px 0 #D24A24; transform: rotate(0.5deg); position: relative;">
+          
+          <div style="flex: 1 1 260px; min-width: 0;">
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 8px;">DISC 2021 · with Idit Keidar</div>
+            <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.1; margin: 0 0 12px;">Tame the Wild with Byzantine Linearizability: Reliable Broadcast, Snapshots, and Asset Transfer</h3>
+            <p style="font-family: 'Caveat', cursive; font-size: 24px; line-height: 1.25; margin: 0 0 16px; color: #4A3830;">What does it even mean for a shared object to be "correct" when some of the processes using it are lying? We defined it, and mapped what can be built from plain registers.</p>
+            <a href="https://doi.org/10.4230/LIPIcs.DISC.2021.18" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block; padding: 10px 0;">Read it →</a>
+            <a href="https://www.youtube.com/watch?v=tdr_AzavoLo" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block; padding: 10px 0; margin-left: 20px;">Watch the talk →</a>
+          </div>
+          <div class="sc-stamp" style="flex: 0 0 200px; display: flex; flex-direction: column; align-items: flex-end; gap: 18px; border-left: 1.5px dashed #B9A68E; padding-left: 28px;">
+            <div style="position: relative; width: 96px; height: 116px; transform: rotate(3deg); margin-right: 6px;">
+              <svg width="96" height="116" viewBox="0 0 96 116" style="display: block; filter: drop-shadow(0 2px 3px rgba(43,28,21,0.25));" aria-hidden="true">
+                <defs><mask id="perf1"><rect width="96" height="116" fill="white"></rect><g fill="black"><circle cx="4" cy="0" r="3.2"></circle><circle cx="4" cy="116" r="3.2"></circle><circle cx="12" cy="0" r="3.2"></circle><circle cx="12" cy="116" r="3.2"></circle><circle cx="20" cy="0" r="3.2"></circle><circle cx="20" cy="116" r="3.2"></circle><circle cx="28" cy="0" r="3.2"></circle><circle cx="28" cy="116" r="3.2"></circle><circle cx="36" cy="0" r="3.2"></circle><circle cx="36" cy="116" r="3.2"></circle><circle cx="44" cy="0" r="3.2"></circle><circle cx="44" cy="116" r="3.2"></circle><circle cx="52" cy="0" r="3.2"></circle><circle cx="52" cy="116" r="3.2"></circle><circle cx="60" cy="0" r="3.2"></circle><circle cx="60" cy="116" r="3.2"></circle><circle cx="68" cy="0" r="3.2"></circle><circle cx="68" cy="116" r="3.2"></circle><circle cx="76" cy="0" r="3.2"></circle><circle cx="76" cy="116" r="3.2"></circle><circle cx="84" cy="0" r="3.2"></circle><circle cx="84" cy="116" r="3.2"></circle><circle cx="92" cy="0" r="3.2"></circle><circle cx="92" cy="116" r="3.2"></circle><circle cx="0" cy="4" r="3.2"></circle><circle cx="96" cy="4" r="3.2"></circle><circle cx="0" cy="12" r="3.2"></circle><circle cx="96" cy="12" r="3.2"></circle><circle cx="0" cy="20" r="3.2"></circle><circle cx="96" cy="20" r="3.2"></circle><circle cx="0" cy="28" r="3.2"></circle><circle cx="96" cy="28" r="3.2"></circle><circle cx="0" cy="36" r="3.2"></circle><circle cx="96" cy="36" r="3.2"></circle><circle cx="0" cy="44" r="3.2"></circle><circle cx="96" cy="44" r="3.2"></circle><circle cx="0" cy="52" r="3.2"></circle><circle cx="96" cy="52" r="3.2"></circle><circle cx="0" cy="60" r="3.2"></circle><circle cx="96" cy="60" r="3.2"></circle><circle cx="0" cy="68" r="3.2"></circle><circle cx="96" cy="68" r="3.2"></circle><circle cx="0" cy="76" r="3.2"></circle><circle cx="96" cy="76" r="3.2"></circle><circle cx="0" cy="84" r="3.2"></circle><circle cx="96" cy="84" r="3.2"></circle><circle cx="0" cy="92" r="3.2"></circle><circle cx="96" cy="92" r="3.2"></circle><circle cx="0" cy="100" r="3.2"></circle><circle cx="96" cy="100" r="3.2"></circle><circle cx="0" cy="108" r="3.2"></circle><circle cx="96" cy="108" r="3.2"></circle><circle cx="0" cy="116" r="3.2"></circle><circle cx="96" cy="116" r="3.2"></circle></g></mask></defs>
+                <rect width="96" height="116" fill="#FFFDF7" mask="url(#perf1)"></rect>
+                <rect x="9" y="9" width="78" height="98" fill="#F2DE86"></rect>
+                <ellipse cx="44" cy="40" rx="17" ry="11" fill="none" stroke="#B83A1A" stroke-width="3" transform="rotate(-10 44 40)"></ellipse>
+  <path d="M58 46 C64 54 56 60 62 68 S70 76 66 82" fill="none" stroke="#B83A1A" stroke-width="3" stroke-linecap="round"></path>
+  <circle cx="58" cy="46" r="3" fill="#2B1C15"></circle>
+                <text x="16" y="100" font-family="Bricolage Grotesque, sans-serif" font-size="8" font-weight="600" letter-spacing="1" fill="#B83A1A">SC</text>
+              </svg>
+              <svg width="78" height="56" viewBox="0 0 78 56" style="position: absolute; left: -52px; top: 58px; transform: rotate(-14deg); opacity: 0.8;" aria-hidden="true">
+                <defs><path id="pm1" d="M10,28 a18,18 0 1,1 36,0"></path></defs>
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#5C4A40" stroke-width="1.6"></circle>
+                <circle cx="28" cy="28" r="19" fill="none" stroke="#5C4A40" stroke-width="0.8"></circle>
+                <text font-family="Bricolage Grotesque, sans-serif" font-size="6.5" font-weight="600" letter-spacing="1" fill="#5C4A40" text-anchor="middle"><textPath href="#pm1" startOffset="50%">DISC</textPath></text>
+                <text x="28" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" fill="#5C4A40">2021</text>
+                <path d="M52 18 q6 -4 12 0 t12 0 M52 28 q6 -4 12 0 t12 0 M52 38 q6 -4 12 0 t12 0" fill="none" stroke="#5C4A40" stroke-width="1.4"></path>
+              </svg>
+            </div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+          </div>
+        </article>
+
+        <article class="sc-card" style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 32px 36px; display: flex; flex-wrap: wrap; gap: 32px; box-shadow: 8px 8px 0 #2B4BA8; transform: rotate(-0.4deg); position: relative;">
+          
+          <div style="flex: 1 1 260px; min-width: 0;">
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 8px;">OPODIS 2022 · with Idit Keidar &amp; Alexander Spiegelman</div>
+            <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.1; margin: 0 0 12px;">Make Every Word Count: Adaptive Byzantine Agreement with Fewer Words</h3>
+            <p style="font-family: 'Caveat', cursive; font-size: 24px; line-height: 1.25; margin: 0 0 16px; color: #4A3830;">Agreement that pays for the failures that actually happen, not the worst case you have to plan for.</p>
+            <a href="https://doi.org/10.4230/LIPIcs.OPODIS.2022.18" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block; padding: 10px 0;">Read it →</a>
+          </div>
+          <div class="sc-stamp" style="flex: 0 0 200px; display: flex; flex-direction: column; align-items: flex-end; gap: 18px; border-left: 1.5px dashed #B9A68E; padding-left: 28px;">
+            <div style="position: relative; width: 96px; height: 116px; transform: rotate(-3deg); margin-right: 6px;">
+              <svg width="96" height="116" viewBox="0 0 96 116" style="display: block; filter: drop-shadow(0 2px 3px rgba(43,28,21,0.25));" aria-hidden="true">
+                <defs><mask id="perf2"><rect width="96" height="116" fill="white"></rect><g fill="black"><circle cx="4" cy="0" r="3.2"></circle><circle cx="4" cy="116" r="3.2"></circle><circle cx="12" cy="0" r="3.2"></circle><circle cx="12" cy="116" r="3.2"></circle><circle cx="20" cy="0" r="3.2"></circle><circle cx="20" cy="116" r="3.2"></circle><circle cx="28" cy="0" r="3.2"></circle><circle cx="28" cy="116" r="3.2"></circle><circle cx="36" cy="0" r="3.2"></circle><circle cx="36" cy="116" r="3.2"></circle><circle cx="44" cy="0" r="3.2"></circle><circle cx="44" cy="116" r="3.2"></circle><circle cx="52" cy="0" r="3.2"></circle><circle cx="52" cy="116" r="3.2"></circle><circle cx="60" cy="0" r="3.2"></circle><circle cx="60" cy="116" r="3.2"></circle><circle cx="68" cy="0" r="3.2"></circle><circle cx="68" cy="116" r="3.2"></circle><circle cx="76" cy="0" r="3.2"></circle><circle cx="76" cy="116" r="3.2"></circle><circle cx="84" cy="0" r="3.2"></circle><circle cx="84" cy="116" r="3.2"></circle><circle cx="92" cy="0" r="3.2"></circle><circle cx="92" cy="116" r="3.2"></circle><circle cx="0" cy="4" r="3.2"></circle><circle cx="96" cy="4" r="3.2"></circle><circle cx="0" cy="12" r="3.2"></circle><circle cx="96" cy="12" r="3.2"></circle><circle cx="0" cy="20" r="3.2"></circle><circle cx="96" cy="20" r="3.2"></circle><circle cx="0" cy="28" r="3.2"></circle><circle cx="96" cy="28" r="3.2"></circle><circle cx="0" cy="36" r="3.2"></circle><circle cx="96" cy="36" r="3.2"></circle><circle cx="0" cy="44" r="3.2"></circle><circle cx="96" cy="44" r="3.2"></circle><circle cx="0" cy="52" r="3.2"></circle><circle cx="96" cy="52" r="3.2"></circle><circle cx="0" cy="60" r="3.2"></circle><circle cx="96" cy="60" r="3.2"></circle><circle cx="0" cy="68" r="3.2"></circle><circle cx="96" cy="68" r="3.2"></circle><circle cx="0" cy="76" r="3.2"></circle><circle cx="96" cy="76" r="3.2"></circle><circle cx="0" cy="84" r="3.2"></circle><circle cx="96" cy="84" r="3.2"></circle><circle cx="0" cy="92" r="3.2"></circle><circle cx="96" cy="92" r="3.2"></circle><circle cx="0" cy="100" r="3.2"></circle><circle cx="96" cy="100" r="3.2"></circle><circle cx="0" cy="108" r="3.2"></circle><circle cx="96" cy="108" r="3.2"></circle><circle cx="0" cy="116" r="3.2"></circle><circle cx="96" cy="116" r="3.2"></circle></g></mask></defs>
+                <rect width="96" height="116" fill="#FFFDF7" mask="url(#perf2)"></rect>
+                <rect x="9" y="9" width="78" height="98" fill="#F4C9B6"></rect>
+                <path d="M22 28 h52 a6 6 0 0 1 6 6 v24 a6 6 0 0 1 -6 6 h-30 l-10 10 v-10 h-12 a6 6 0 0 1 -6 -6 v-24 a6 6 0 0 1 6 -6 z" fill="#FBF6EC" stroke="#2B1C15" stroke-width="2" stroke-linejoin="round"></path>
+  <path d="M30 41 h26 M30 51 h14" stroke="#B83A1A" stroke-width="3.5" stroke-linecap="round"></path>
+                <text x="16" y="100" font-family="Bricolage Grotesque, sans-serif" font-size="8" font-weight="600" letter-spacing="1" fill="#B83A1A">SC</text>
+              </svg>
+              <svg width="78" height="56" viewBox="0 0 78 56" style="position: absolute; left: -52px; top: 58px; transform: rotate(-14deg); opacity: 0.8;" aria-hidden="true">
+                <defs><path id="pm2" d="M10,28 a18,18 0 1,1 36,0"></path></defs>
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#5C4A40" stroke-width="1.6"></circle>
+                <circle cx="28" cy="28" r="19" fill="none" stroke="#5C4A40" stroke-width="0.8"></circle>
+                <text font-family="Bricolage Grotesque, sans-serif" font-size="6.5" font-weight="600" letter-spacing="1" fill="#5C4A40" text-anchor="middle"><textPath href="#pm2" startOffset="50%">OPODIS</textPath></text>
+                <text x="28" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" fill="#5C4A40">2022</text>
+                <path d="M52 18 q6 -4 12 0 t12 0 M52 28 q6 -4 12 0 t12 0 M52 38 q6 -4 12 0 t12 0" fill="none" stroke="#5C4A40" stroke-width="1.4"></path>
+              </svg>
+            </div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+          </div>
+        </article>
+
+        <article class="sc-card" style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 32px 36px; display: flex; flex-wrap: wrap; gap: 32px; box-shadow: 8px 8px 0 #D24A24; transform: rotate(0.6deg); position: relative;">
+          
+          <div style="flex: 1 1 260px; min-width: 0;">
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 8px;">Under submission · solo paper</div>
+            <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.1; margin: 0 0 12px;">When Local Stability Does Not Compose: Predicting Metastability from Isolated Measurements</h3>
+            <p style="font-family: 'Caveat', cursive; font-size: 24px; line-height: 1.25; margin: 0 0 16px; color: #4A3830;">Every part of a system can look healthy on its own, and the whole thing can still tip over. Can we predict it from measuring the parts?</p>
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block; padding: 10px 0; color: #8F3218;">Coming soon</span>
+          </div>
+          <div class="sc-stamp" style="flex: 0 0 200px; display: flex; flex-direction: column; align-items: flex-end; gap: 18px; border-left: 1.5px dashed #B9A68E; padding-left: 28px;">
+            <div style="position: relative; width: 96px; height: 116px; transform: rotate(4deg); margin-right: 6px;">
+              <svg width="96" height="116" viewBox="0 0 96 116" style="display: block; filter: drop-shadow(0 2px 3px rgba(43,28,21,0.25));" aria-hidden="true">
+                <defs><mask id="perf3"><rect width="96" height="116" fill="white"></rect><g fill="black"><circle cx="4" cy="0" r="3.2"></circle><circle cx="4" cy="116" r="3.2"></circle><circle cx="12" cy="0" r="3.2"></circle><circle cx="12" cy="116" r="3.2"></circle><circle cx="20" cy="0" r="3.2"></circle><circle cx="20" cy="116" r="3.2"></circle><circle cx="28" cy="0" r="3.2"></circle><circle cx="28" cy="116" r="3.2"></circle><circle cx="36" cy="0" r="3.2"></circle><circle cx="36" cy="116" r="3.2"></circle><circle cx="44" cy="0" r="3.2"></circle><circle cx="44" cy="116" r="3.2"></circle><circle cx="52" cy="0" r="3.2"></circle><circle cx="52" cy="116" r="3.2"></circle><circle cx="60" cy="0" r="3.2"></circle><circle cx="60" cy="116" r="3.2"></circle><circle cx="68" cy="0" r="3.2"></circle><circle cx="68" cy="116" r="3.2"></circle><circle cx="76" cy="0" r="3.2"></circle><circle cx="76" cy="116" r="3.2"></circle><circle cx="84" cy="0" r="3.2"></circle><circle cx="84" cy="116" r="3.2"></circle><circle cx="92" cy="0" r="3.2"></circle><circle cx="92" cy="116" r="3.2"></circle><circle cx="0" cy="4" r="3.2"></circle><circle cx="96" cy="4" r="3.2"></circle><circle cx="0" cy="12" r="3.2"></circle><circle cx="96" cy="12" r="3.2"></circle><circle cx="0" cy="20" r="3.2"></circle><circle cx="96" cy="20" r="3.2"></circle><circle cx="0" cy="28" r="3.2"></circle><circle cx="96" cy="28" r="3.2"></circle><circle cx="0" cy="36" r="3.2"></circle><circle cx="96" cy="36" r="3.2"></circle><circle cx="0" cy="44" r="3.2"></circle><circle cx="96" cy="44" r="3.2"></circle><circle cx="0" cy="52" r="3.2"></circle><circle cx="96" cy="52" r="3.2"></circle><circle cx="0" cy="60" r="3.2"></circle><circle cx="96" cy="60" r="3.2"></circle><circle cx="0" cy="68" r="3.2"></circle><circle cx="96" cy="68" r="3.2"></circle><circle cx="0" cy="76" r="3.2"></circle><circle cx="96" cy="76" r="3.2"></circle><circle cx="0" cy="84" r="3.2"></circle><circle cx="96" cy="84" r="3.2"></circle><circle cx="0" cy="92" r="3.2"></circle><circle cx="96" cy="92" r="3.2"></circle><circle cx="0" cy="100" r="3.2"></circle><circle cx="96" cy="100" r="3.2"></circle><circle cx="0" cy="108" r="3.2"></circle><circle cx="96" cy="108" r="3.2"></circle><circle cx="0" cy="116" r="3.2"></circle><circle cx="96" cy="116" r="3.2"></circle></g></mask></defs>
+                <rect width="96" height="116" fill="#FFFDF7" mask="url(#perf3)"></rect>
+                <rect x="9" y="9" width="78" height="98" fill="#EFE4CF"></rect>
+                <path d="M18 52 C28 30 38 30 46 50 C52 66 60 74 70 74 C76 74 79 68 80 64" fill="none" stroke="#2B1C15" stroke-width="2.5" stroke-linecap="round"></path>
+  <circle cx="46" cy="43" r="6" fill="#D24A24" stroke="#2B1C15" stroke-width="1.5"></circle>
+  <path d="M55 39 q6 0 9 6" fill="none" stroke="#2B1C15" stroke-width="1.3" stroke-dasharray="2 2.5"></path>
+                <text x="16" y="100" font-family="Bricolage Grotesque, sans-serif" font-size="8" font-weight="600" letter-spacing="1" fill="#2B4BA8">SC</text>
+              </svg>
+              <svg width="78" height="56" viewBox="0 0 78 56" style="position: absolute; left: -52px; top: 58px; transform: rotate(-14deg); opacity: 0.8;" aria-hidden="true">
+                <defs><path id="pm3" d="M10,28 a18,18 0 1,1 36,0"></path></defs>
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#5C4A40" stroke-width="1.6"></circle>
+                <circle cx="28" cy="28" r="19" fill="none" stroke="#5C4A40" stroke-width="0.8"></circle>
+                <text font-family="Bricolage Grotesque, sans-serif" font-size="6.5" font-weight="600" letter-spacing="1" fill="#5C4A40" text-anchor="middle"><textPath href="#pm3" startOffset="50%">SUBMITTED</textPath></text>
+                <text x="28" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" fill="#5C4A40">2026</text>
+                <path d="M52 18 q6 -4 12 0 t12 0 M52 28 q6 -4 12 0 t12 0 M52 38 q6 -4 12 0 t12 0" fill="none" stroke="#5C4A40" stroke-width="1.4"></path>
+              </svg>
+            </div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+            <div style="width: 100%; border-bottom: 1px solid #B9A68E; height: 22px;"></div>
+          </div>
+        </article>
+
+        <div style="text-align: center; margin-top: 8px;">
+          <a href="papers.html" style="display: inline-block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border: 1.5px solid #B83A1A; border-radius: 999px; padding: 14px 26px; text-decoration: none;">All papers →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCRAPBOOK -->
+    <section id="scrapbook" class="sc-section" style="background: #EFE4CF; padding: 88px 48px 104px;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 10px;">Off the clock</div>
+        <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 52px; margin: 0;">The <i>scrapbook</i></h2>
+      </div>
+      <div class="sc-polaroids" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; max-width: 1240px; margin: 0 auto;">
+        <figure style="margin: 0 0 0; background: #FBF6EC; padding: 12px 12px 16px; width: 200px; box-shadow: 0 10px 22px rgba(43,28,21,0.18); transform: rotate(-3deg); position: relative;">
+          <div style="position: absolute; top: -12px; left: 60px; width: 80px; height: 22px; background: rgba(242,222,134,0.85); transform: rotate(-4deg);"></div>
+          <img src="images/bryce.jpg" alt="Shir among orange hoodoos" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 22px; text-align: center; margin-top: 10px;">Bryce Canyon, Utah</figcaption>
+        </figure>
+        <figure style="margin: 24px 0 0; background: #FBF6EC; padding: 12px 12px 16px; width: 200px; box-shadow: 0 10px 22px rgba(43,28,21,0.18); transform: rotate(2deg); position: relative;">
+          <div style="position: absolute; top: -12px; left: 60px; width: 80px; height: 22px; background: rgba(232,130,106,0.7); transform: rotate(3deg);"></div>
+          <img src="images/canyonlands.jpg" alt="Shir with her husband and baby under Mesa Arch" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 22px; text-align: center; margin-top: 10px;">Canyonlands, Utah</figcaption>
+        </figure>
+        <figure style="margin: 0 0 0; background: #FBF6EC; padding: 12px 12px 16px; width: 200px; box-shadow: 0 10px 22px rgba(43,28,21,0.18); transform: rotate(-1.5deg); position: relative;">
+          <div style="position: absolute; top: -12px; left: 60px; width: 80px; height: 22px; background: rgba(196,212,236,0.9); transform: rotate(-2deg);"></div>
+          <img src="images/austria-trail.jpg" alt="Shir walking a forest trail with her kids" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 22px; text-align: center; margin-top: 10px;">Austria</figcaption>
+        </figure>
+        <figure style="margin: 28px 0 0; background: #FBF6EC; padding: 12px 12px 16px; width: 200px; box-shadow: 0 10px 22px rgba(43,28,21,0.18); transform: rotate(2.5deg); position: relative;">
+          <div style="position: absolute; top: -12px; left: 60px; width: 80px; height: 22px; background: rgba(242,222,134,0.85); transform: rotate(5deg);"></div>
+          <img src="images/grand-canyon.jpg" alt="Shir and her husband smiling at each other at the Grand Canyon" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+          <figcaption style="font-family: 'Caveat', cursive; font-size: 22px; text-align: center; margin-top: 10px;">Grand Canyon, Arizona</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER on the rust frame -->
+  <footer id="hi" class="sc-footer" style="padding: 88px 32px 64px; text-align: center; color: #FBF4E6;">
+    <div style="font-family: 'Caveat', cursive; font-size: 30px; color: #F2DE86;">I like hearing from people</div>
+    <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 96px; line-height: 1; margin: 6px 0 36px;">Say <i>hi</i></h2>
+    <p style="font-size: 16px; line-height: 1.6; max-width: 520px; margin: -12px auto 32px; color: #F7E9D8;">Whether it&#8217;s a research collaboration, an opportunity you think I&#8217;d be a good fit for, or a question about one of my papers, my inbox is open.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+      <a href="mailto:shir.co@gmail.com" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Email</a>
+      <a href="https://github.com/shir-co" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=jQllu84AAAAJ&amp;hl=en" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/shir-cohen/" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

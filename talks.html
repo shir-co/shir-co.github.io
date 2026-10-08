@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talks &amp; service · Shir Cohen</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Talks &amp; service · Shir Cohen">
+<meta property="og:description" content="Talks and academic service by Shir Cohen.">
+<meta property="og:url" content="https://shir-co.github.io/talks.html">
+<meta property="og:image" content="https://shir-co.github.io/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shir Cohen — Reliable Systems, Built from Unreliable Parts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Talks &amp; service · Shir Cohen">
+<meta name="twitter:description" content="Talks and academic service by Shir Cohen.">
+<meta name="twitter:image" content="https://shir-co.github.io/images/og.png">
+<meta name="description" content="Shir Cohen — distributed systems researcher: Byzantine agreement, consensus, BFT systems and metastability.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#9B4A2E}
+html{scroll-behavior:smooth}
+img{max-width:100%}
+a{color:#B83A1A}a:hover{color:#7E2A17}
+</style>
+
+<style>
+html, body { overflow-x: hidden; }
+.sc-frame { overflow-x: clip; }
+@media (max-width: 640px) {
+  .sc-frame { padding: 0 8px 8px !important; }
+  .sc-nav { justify-content: center !important; flex-wrap: wrap !important; gap: 4px 18px !important; padding: 14px 6px 12px !important; font-size: 11px !important; }
+  .sc-nav > div { display: contents !important; }
+  .sc-nav a { white-space: nowrap; padding: 4px 0 !important; }
+  .sc-nav-minor { display: none !important; }
+  .sc-hero-photo { min-height: 0 !important; padding: 40px 28px 28px !important; }
+  .sc-hero-text { min-height: 0 !important; padding: 12px 14px 32px !important; }
+  .sc-hero-card { padding: 28px 22px 30px !important; }
+  .sc-wordmark { font-size: 50px !important; margin-bottom: 18px !important; }
+  .sc-h1 { font-size: 38px !important; }
+  .sc-badge { width: 92px !important; height: 92px !important; top: 6px !important; right: 6px !important; }
+  .sc-intro { padding: 56px 16px 48px !important; }
+  .sc-intro p { font-size: 24px !important; line-height: 1.35 !important; }
+  .sc-swirl { display: none !important; }
+  .sc-section { padding-left: 18px !important; padding-right: 18px !important; padding-top: 56px !important; padding-bottom: 64px !important; }
+  .sc-section h2 { font-size: 40px !important; }
+  .sc-card { transform: none !important; padding: 24px 22px !important; }
+  .sc-card h3 { font-size: 26px !important; }
+  .sc-stamp { display: none !important; }
+  .sc-polaroids { gap: 18px 14px !important; }
+  .sc-polaroids figure { width: calc(50% - 7px) !important; margin-top: 0 !important; box-sizing: border-box; padding: 8px 8px 10px !important; }
+  .sc-polaroids figcaption { font-size: 17px !important; }
+  .sc-footer { padding: 64px 18px 48px !important; }
+  .sc-footer h2 { font-size: 64px !important; }
+  .sc-pagehead { padding: 40px 14px !important; }
+  .sc-pagehead h1 { font-size: 46px !important; }
+  .sc-pagehead > div { padding: 26px 20px !important; }
+}
+</style>
+</head>
+<body>
+<div class="sc-frame" style="background: #9B4A2E; padding: 0 18px 18px; font-family: 'Bricolage Grotesque', Georgia, sans-serif; color: #2B1C15; box-sizing: border-box;">
+  <nav class="sc-nav" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 14px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">
+    <div style="display: flex; flex-wrap: wrap; gap: 28px;">
+      <a href="index.html#about" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(About)</a>
+      <a class="sc-nav-minor" href="index.html#things" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Things I think about)</a>
+      <a href="papers.html" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Papers)</a>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 28px;">
+      <a href="talks.html" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Talks &amp; service)</a>
+      <a class="sc-nav-minor" href="index.html#scrapbook" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Scrapbook)</a>
+      <a href="index.html#hi" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Say hi)</a>
+    </div>
+  </nav>
+  <main style="background: #F4ECDD; overflow: hidden;">
+    <header class="sc-pagehead" style="background-color: #F7F0E3; background-image: repeating-linear-gradient(90deg, #C4D4EC 0 14px, #F7F0E3 14px 36px); padding: 72px 24px;">
+      <div style="background: #F7F0E3; max-width: 640px; margin: 0 auto; padding: 36px 40px; text-align: center; box-shadow: 0 0 0 1px #E3D6C2;">
+        <div style="font-family: 'Caveat', cursive; font-size: 28px; color: #5C4A40;">on stage &amp; behind the scenes</div>
+        <h1 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1; margin: 4px 0 0;">Talks &amp; <i>service</i></h1>
+      </div>
+    </header>
+    <section class="sc-section" style="max-width: 1100px; margin: 0 auto; padding: 72px 32px 24px;">
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 40px; margin: 0 0 32px;">Talks</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 40px 36px;">
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <div style="border: 3px solid #5C4A40; background: #FBF6EC; padding: 12px; box-shadow: 0 12px 24px rgba(43,28,21,0.14);">
+            <div style="position: relative; aspect-ratio: 16 / 9; background: #2B1C15;">
+              <iframe src="https://www.youtube-nocookie.com/embed/z2-bqsErTsY" title="MSc Thesis Seminar" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+            </div>
+          </div>
+          <figcaption>
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 4px;">Technion</div>
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; line-height: 1.2;">MSc Thesis Seminar</div>
+          </figcaption>
+        </figure>
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <div style="border: 3px solid #5C4A40; background: #FBF6EC; padding: 12px; box-shadow: 0 12px 24px rgba(43,28,21,0.14);">
+            <div style="position: relative; aspect-ratio: 16 / 9; background: #2B1C15;">
+              <iframe src="https://www.youtube-nocookie.com/embed/YZnm0HppO4c" title="Not a COINcidence: Sub-Quadratic Asynchronous Byzantine Agreement WHP" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+            </div>
+          </div>
+          <figcaption>
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 4px;">DISC 2020</div>
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; line-height: 1.2;">Not a COINcidence: Sub-Quadratic Asynchronous Byzantine Agreement WHP</div>
+          </figcaption>
+        </figure>
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <div style="border: 3px solid #5C4A40; background: #FBF6EC; padding: 12px; box-shadow: 0 12px 24px rgba(43,28,21,0.14);">
+            <div style="position: relative; aspect-ratio: 16 / 9; background: #2B1C15;">
+              <iframe src="https://www.youtube-nocookie.com/embed/tdr_AzavoLo" title="Tame the Wild with Byzantine Linearizability: Reliable Broadcast, Snapshots, and Asset Transfer" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+            </div>
+          </div>
+          <figcaption>
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 4px;">DISC 2021</div>
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; line-height: 1.2;">Tame the Wild with Byzantine Linearizability: Reliable Broadcast, Snapshots, and Asset Transfer</div>
+          </figcaption>
+        </figure>
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <div style="border: 3px solid #5C4A40; background: #FBF6EC; padding: 12px; box-shadow: 0 12px 24px rgba(43,28,21,0.14);">
+            <div style="position: relative; aspect-ratio: 16 / 9; background: #2B1C15;">
+              <iframe src="https://www.youtube-nocookie.com/embed/o3XgmhWnr9k" title="Be Aware of Your Leaders" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+            </div>
+          </div>
+          <figcaption>
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 4px;">FC 2022</div>
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; line-height: 1.2;">Be Aware of Your Leaders</div>
+          </figcaption>
+        </figure>
+      </div>
+      <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; margin: 56px 0 4px;">Also presented at</h3>
+      <ul style="margin: 0; padding: 0; max-width: 760px;"><li style="list-style: none; padding: 16px 0; border-bottom: 1px dashed #C9B79E;"><div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 4px;">PODC 2022 · OPODIS 2022</div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px;">Make Every Word Count: Adaptive Byzantine Agreement with Fewer Words</div></li><li style="list-style: none; padding: 16px 0; border-bottom: 1px dashed #C9B79E;"><div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 4px;">PODC 2020 · Israel Blockchain Research Day 2021</div><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px;">Not a COINcidence: Sub-Quadratic Asynchronous Byzantine Agreement WHP</div></li></ul>
+    </section>
+    <section class="sc-section" style="background: #F2DE86; border-radius: 40px 40px 0 0; margin-top: 72px; padding: 72px 32px 96px;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 40px; margin: 0 0 32px;">Service</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 28px;">
+        <div style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 22px 24px; box-shadow: 6px 6px 0 #2B4BA8;">
+          <div style="font-family: 'Caveat', cursive; font-size: 26px; font-weight: 700; color: #8F3218; margin-bottom: 4px;">Program committee</div>
+          <div style="font-size: 15px; line-height: 1.55; color: #4A3830;">OPODIS 2022 · DISC 2024 · PODC 2025 · PODC 2027</div>
+        </div>
+        <div style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 22px 24px; box-shadow: 6px 6px 0 #D24A24;">
+          <div style="font-family: 'Caveat', cursive; font-size: 26px; font-weight: 700; color: #8F3218; margin-bottom: 4px;">Organizing committee</div>
+          <div style="font-size: 15px; line-height: 1.55; color: #4A3830;">DISC 2020</div>
+        </div>
+        <div style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 22px 24px; box-shadow: 6px 6px 0 #2B4BA8;">
+          <div style="font-family: 'Caveat', cursive; font-size: 26px; font-weight: 700; color: #8F3218; margin-bottom: 4px;">Journal reviewer</div>
+          <div style="font-size: 15px; line-height: 1.55; color: #4A3830;">ACM Transactions on Computer Systems (TOCS) · Distributed Computing</div>
+        </div>
+        <div style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 22px 24px; box-shadow: 6px 6px 0 #D24A24;">
+          <div style="font-family: 'Caveat', cursive; font-size: 26px; font-weight: 700; color: #8F3218; margin-bottom: 4px;">Conference reviewer</div>
+          <div style="font-size: 15px; line-height: 1.55; color: #4A3830;">USENIX ATC 2020 · PODC 2021 · ICDCS 2021 · FC 2022 · AFT 2022</div>
+        </div>
+        <div style="background: #FBF6EC; border: 1.5px solid #2B1C15; padding: 22px 24px; box-shadow: 6px 6px 0 #2B4BA8;">
+          <div style="font-family: 'Caveat', cursive; font-size: 26px; font-weight: 700; color: #8F3218; margin-bottom: 4px;">Mentoring</div>
+          <div style="font-size: 15px; line-height: 1.55; color: #4A3830;">Hackathon mentor, BizTEC Entrepreneurship Program</div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- FOOTER on the rust frame -->
+  <footer id="hi" class="sc-footer" style="padding: 88px 32px 64px; text-align: center; color: #FBF4E6;">
+    <div style="font-family: 'Caveat', cursive; font-size: 30px; color: #F2DE86;">I like hearing from people</div>
+    <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 96px; line-height: 1; margin: 6px 0 36px;">Say <i>hi</i></h2>
+    <p style="font-size: 16px; line-height: 1.6; max-width: 520px; margin: -12px auto 32px; color: #F7E9D8;">Whether it&#8217;s a research collaboration, an opportunity you think I&#8217;d be a good fit for, or a question about one of my papers, my inbox is open.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+      <a href="mailto:shir.co@gmail.com" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Email</a>
+      <a href="https://github.com/shir-co" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=jQllu84AAAAJ&amp;hl=en" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/shir-cohen/" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">LinkedIn</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

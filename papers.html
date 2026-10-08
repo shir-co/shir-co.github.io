@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Papers · Shir Cohen</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Papers · Shir Cohen">
+<meta property="og:description" content="Papers by Shir Cohen on Byzantine agreement, consensus, BFT systems, fair ordering and metastability.">
+<meta property="og:url" content="https://shir-co.github.io/papers.html">
+<meta property="og:image" content="https://shir-co.github.io/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shir Cohen — Reliable Systems, Built from Unreliable Parts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Papers · Shir Cohen">
+<meta name="twitter:description" content="Papers by Shir Cohen on Byzantine agreement, consensus, BFT systems, fair ordering and metastability.">
+<meta name="twitter:image" content="https://shir-co.github.io/images/og.png">
+<meta name="description" content="Shir Cohen — distributed systems researcher: Byzantine agreement, consensus, BFT systems and metastability.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#9B4A2E}
+html{scroll-behavior:smooth}
+img{max-width:100%}
+a{color:#B83A1A}a:hover{color:#7E2A17}
+</style>
+
+<style>
+html, body { overflow-x: hidden; }
+.sc-frame { overflow-x: clip; }
+@media (max-width: 640px) {
+  .sc-frame { padding: 0 8px 8px !important; }
+  .sc-nav { justify-content: center !important; flex-wrap: wrap !important; gap: 4px 18px !important; padding: 14px 6px 12px !important; font-size: 11px !important; }
+  .sc-nav > div { display: contents !important; }
+  .sc-nav a { white-space: nowrap; padding: 4px 0 !important; }
+  .sc-nav-minor { display: none !important; }
+  .sc-hero-photo { min-height: 0 !important; padding: 40px 28px 28px !important; }
+  .sc-hero-text { min-height: 0 !important; padding: 12px 14px 32px !important; }
+  .sc-hero-card { padding: 28px 22px 30px !important; }
+  .sc-wordmark { font-size: 50px !important; margin-bottom: 18px !important; }
+  .sc-h1 { font-size: 38px !important; }
+  .sc-badge { width: 92px !important; height: 92px !important; top: 6px !important; right: 6px !important; }
+  .sc-intro { padding: 56px 16px 48px !important; }
+  .sc-intro p { font-size: 24px !important; line-height: 1.35 !important; }
+  .sc-swirl { display: none !important; }
+  .sc-section { padding-left: 18px !important; padding-right: 18px !important; padding-top: 56px !important; padding-bottom: 64px !important; }
+  .sc-section h2 { font-size: 40px !important; }
+  .sc-card { transform: none !important; padding: 24px 22px !important; }
+  .sc-card h3 { font-size: 26px !important; }
+  .sc-stamp { display: none !important; }
+  .sc-polaroids { gap: 18px 14px !important; }
+  .sc-polaroids figure { width: calc(50% - 7px) !important; margin-top: 0 !important; box-sizing: border-box; padding: 8px 8px 10px !important; }
+  .sc-polaroids figcaption { font-size: 17px !important; }
+  .sc-footer { padding: 64px 18px 48px !important; }
+  .sc-footer h2 { font-size: 64px !important; }
+  .sc-pagehead { padding: 40px 14px !important; }
+  .sc-pagehead h1 { font-size: 46px !important; }
+  .sc-pagehead > div { padding: 26px 20px !important; }
+}
+</style>
+</head>
+<body>
+<div class="sc-frame" style="background: #9B4A2E; padding: 0 18px 18px; font-family: 'Bricolage Grotesque', Georgia, sans-serif; color: #2B1C15; box-sizing: border-box;">
+  <nav class="sc-nav" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 14px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">
+    <div style="display: flex; flex-wrap: wrap; gap: 28px;">
+      <a href="index.html#about" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(About)</a>
+      <a class="sc-nav-minor" href="index.html#things" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Things I think about)</a>
+      <a href="papers.html" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Papers)</a>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 28px;">
+      <a href="talks.html" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Talks &amp; service)</a>
+      <a class="sc-nav-minor" href="index.html#scrapbook" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Scrapbook)</a>
+      <a href="index.html#hi" style="color: #FBF4E6; text-decoration: none; padding: 8px 0;">(Say hi)</a>
+    </div>
+  </nav>
+  <main style="background: #F4ECDD; overflow: hidden;">
+    <header class="sc-pagehead" style="background-color: #F7F0E3; background-image: repeating-linear-gradient(90deg, #C4D4EC 0 14px, #F7F0E3 14px 36px); padding: 72px 24px;">
+      <div style="background: #F7F0E3; max-width: 640px; margin: 0 auto; padding: 36px 40px; text-align: center; box-shadow: 0 0 0 1px #E3D6C2;">
+        <div style="font-family: 'Caveat', cursive; font-size: 28px; color: #5C4A40;">the full list</div>
+        <h1 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1; margin: 4px 0 0;">Papers</h1>
+      </div>
+    </header>
+    <section class="sc-section" style="max-width: 860px; margin: 0 auto; padding: 64px 32px 24px;">
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 38px; margin: 0 0 8px;">In the works</h2>
+      <ul style="margin: 0; padding: 0;">
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">Under submission</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;">When Local Stability Does Not Compose: Predicting Metastability from Isolated Measurements<span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong></div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">Under submission</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;">GridSMR: Causal Compression for Sharded Blockchains<span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Adam Alon, Raz Omessi, Amir Sarid, Dana Shamir, and Ofir Zohar</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">Under submission</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;">StrideBFT: Consensus with Concurrent Block Processing and Proposal-Fixed Ancestry</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Dana Shamir, Adam Alon, David Lehavi, and <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong></div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">Under submission</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;">LAS-DB: Sharded Log-Anchored State without a Write-Path Authenticated Data Structure</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Moshik Hershcovitch, Udi Garmiza, Raz Omessi, <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Omer Banay, Dor Banoun, Adam Alon, and Amir Sarid</div>
+      </li>
+      </ul>
+    </section>
+    <section class="sc-section" style="max-width: 860px; margin: 0 auto; padding: 48px 32px 96px;">
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 38px; margin: 0 0 8px;">Papers &amp; preprints</h2>
+      <ul style="margin: 0; padding: 0;">
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">EuroSys 2027 · to appear</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;">Linearizable Shared Log API Considered Harmful</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Yu-Ju Huang, Shubham Chaudhary, Rafael Soares, <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Lorenzo Alvisi, Luis Rodrigues, and Robbert van Renesse</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">OSDI 2026</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://www.usenix.org/conference/osdi26/presentation/zhang-yunhao" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Equal Opportunity: A Correctness Condition for Ordered Consensus</a></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Yunhao Zhang, Haobin Ni, Soumya Basu, <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Maofan Yin, Lorenzo Alvisi, Robbert van Renesse, Qi Chen, and Lidong Zhou</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">SOSP 2025</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://doi.org/10.1145/3731569.3764799" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Pesto: Cooking up High Performance BFT Queries</a></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Florian Suri-Payer, Neil Giridharan, Liam Arzola, <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Lorenzo Alvisi, and Natacha Crooks</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">HotNets 2025</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://doi.org/10.1145/3772356.3772426" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Modeling Metastability</a></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Ali Farahbakhsh, Qingjie Lu, <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Robbert van Renesse, Lorenzo Alvisi, and Andreas Haeberlen</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">arXiv preprint · 2025</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://arxiv.org/abs/2501.05535" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">On Fair Ordering and Differential Privacy</a><span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Neel Basu, Soumya Basu, and Lorenzo Alvisi</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">DISC 2023 (Brief Announcement)</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://doi.org/10.4230/LIPIcs.DISC.2023.39" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Subquadratic Multivalued Asynchronous Byzantine Agreement WHP</a><span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong> and Idit Keidar</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">FC 2023</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://eprint.iacr.org/2022/455" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Proof of Availability &amp; Retrieval in a Modular Blockchain Architecture</a></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Guy Goren, Lefteris Kokoris-Kogias, Alberto Sonnino, and Alexander Spiegelman</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">OPODIS 2022 · Brief Announcement at PODC 2022</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://doi.org/10.4230/LIPIcs.OPODIS.2022.18" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Make Every Word Count: Adaptive Byzantine Agreement with Fewer Words</a><span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Idit Keidar, and Alexander Spiegelman</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">PODC 2022</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://arxiv.org/abs/2205.11148" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Distributed Computations in Fully-Defective Networks</a></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Keren Censor-Hillel, <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Ran Gelles, and Gal Sela</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">FC 2022</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://arxiv.org/abs/2110.00960" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Be Aware of Your Leaders</a><span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Rati Gelashvili, Lefteris Kokoris-Kogias, Zekun Li, Dahlia Malkhi, Alberto Sonnino, and Alexander Spiegelman</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">DISC 2021</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://doi.org/10.4230/LIPIcs.DISC.2021.18" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Tame the Wild with Byzantine Linearizability: Reliable Broadcast, Snapshots, and Asset Transfer</a><span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong> and Idit Keidar</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">PETS 2021</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://doi.org/10.2478/popets-2021-0061" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">HashWires: Hyperefficient Credential-Based Range Proofs</a></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;">Konstantinos Chalkias, <strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Kevin Lewi, Fredric Moezinia, and Yolan Romailler</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">SIGACT News 2021</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://arxiv.org/abs/2111.02162" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Byzantine Agreement with Less Communication: Recent Advances</a></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Idit Keidar, and Oded Naor</div>
+      </li>
+      <li style="padding: 22px 0; border-bottom: 1px dashed #C9B79E; list-style: none;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8F3218; margin-bottom: 6px;">DISC 2020 · Brief Announcement at PODC 2020</div>
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.2; margin-bottom: 6px;"><a href="https://doi.org/10.4230/LIPIcs.DISC.2020.25" target="_blank" rel="noopener" style="color: #2B1C15; text-decoration: none; border-bottom: 1.5px solid #E8826A;">Not a COINcidence: Sub-Quadratic Asynchronous Byzantine Agreement WHP</a><span style="font-family: 'Caveat', cursive; font-size: 20px; color: #B83A1A; margin-left: 8px; white-space: nowrap;">first author</span></div>
+        <div style="font-size: 14px; line-height: 1.5; color: #5C4A40;"><strong style="font-weight: 600; color: #2B1C15;">Shir Cohen</strong>, Idit Keidar, and Alexander Spiegelman</div>
+      </li>
+      </ul>
+      <p style="margin-top: 40px;"><a href="index.html" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">← Back home</a></p>
+    </section>
+  </main>
+  <!-- FOOTER on the rust frame -->
+  <footer id="hi" class="sc-footer" style="padding: 88px 32px 64px; text-align: center; color: #FBF4E6;">
+    <div style="font-family: 'Caveat', cursive; font-size: 30px; color: #F2DE86;">I like hearing from people</div>
+    <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 96px; line-height: 1; margin: 6px 0 36px;">Say <i>hi</i></h2>
+    <p style="font-size: 16px; line-height: 1.6; max-width: 520px; margin: -12px auto 32px; color: #F7E9D8;">Whether it&#8217;s a research collaboration, an opportunity you think I&#8217;d be a good fit for, or a question about one of my papers, my inbox is open.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+      <a href="mailto:shir.co@gmail.com" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Email</a>
+      <a href="https://github.com/shir-co" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=jQllu84AAAAJ&amp;hl=en" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/shir-cohen/" style="color: #FBF4E6; text-decoration: none; border: 1.5px solid #FBF4E6; border-radius: 999px; padding: 13px 24px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">LinkedIn</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
